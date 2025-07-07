@@ -1,0 +1,35 @@
+{
+  "name": "prompt-app-website",
+  "version": "1.0.0",
+  "description": "prompt-app - 轻量级 AI 提示词工具官网",
+  "scripts": {
+    "dev": "sirv . --port 8000 --cors",
+    "build": "npm run clean && npm run build:prepare && npm run build:optimize && npm run build:assets",
+    "clean": "rm -rf dist",
+    "build:prepare": "mkdir -p dist/styles dist/scripts dist/images dist/assets",
+    "build:optimize": "npm run optimize:html && npm run optimize:css && npm run optimize:js",
+    "build:assets": "cp -r images/* dist/images/ && cp -r assets/* dist/assets/",
+    "optimize:html": "html-minifier-terser index.html -o dist/index.html --collapse-whitespace --remove-comments --minify-css --minify-js",
+    "optimize:css": "cleancss -o dist/styles/main.css styles/main.css",
+    "optimize:js": "terser scripts/main.js -o dist/scripts/main.js --compress --mangle",
+    "preview": "sirv dist --port 8080 --cors"
+  },
+  "devDependencies": {
+    "html-minifier-terser": "^7.2.0",
+    "clean-css-cli": "^5.6.3",
+    "terser": "^5.43.1",
+    "sirv-cli": "^3.0.1"
+  },
+  "keywords": ["macos", "ai", "prompt", "productivity", "prompt-management"],
+  "author": "prompt-app Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wzcskhc/prompt-app-website"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  },
+  "private": true
+}

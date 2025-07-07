@@ -1,0 +1,34 @@
+# 依赖
+node_modules/
+yarn.lock
+
+# 构建输出
+dist/
+build/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 临时文件
+*.log
+*.tmp
+.cache/
+
+# 环境变量
+.env
+.env.local
+
+# 大文件（如果直接存储安装包）
+*.dmg
+*.pkg
+# 注意：不忽略 assets/PromptX2.zip，它是项目的一部分
+
+# claude
+.claude/
