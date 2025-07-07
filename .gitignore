@@ -28,7 +28,6 @@ Thumbs.db
 # 大文件（如果直接存储安装包）
 *.dmg
 *.pkg
-# 注意：不忽略 assets/PromptX2.zip，它是项目的一部分
 
 # claude
 .claude/
