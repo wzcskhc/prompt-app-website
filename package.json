@@ -8,7 +8,7 @@
     "clean": "rm -rf dist",
     "build:prepare": "mkdir -p dist/styles dist/scripts dist/images dist/assets",
     "build:optimize": "npm run optimize:html && npm run optimize:css && npm run optimize:js",
-    "build:assets": "cp -r images/* dist/images/ && cp -r assets/* dist/assets/",
+    "build:assets": "cp -r images/* dist/images/ && (find assets -type f -not -name '.*' -exec cp {} dist/assets/ \\; 2>/dev/null || echo 'No assets to copy')",
     "optimize:html": "html-minifier-terser index.html -o dist/index.html --collapse-whitespace --remove-comments --minify-css --minify-js",
     "optimize:css": "cleancss -o dist/styles/main.css styles/main.css",
     "optimize:js": "terser scripts/main.js -o dist/scripts/main.js --compress --mangle",
